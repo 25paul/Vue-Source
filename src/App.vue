@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
+    <div @click="handle">点击</div>
   </div>
 </template>
 
@@ -8,7 +8,32 @@
 
 export default {
   name: 'App',
+  data: () => {
+    return {
+      eventArr: ['event1', 'event2']
+    }
+  },
   components: {
+  },
+  methods: {
+    handle () {
+      this.$emit('event_self', 'hahaha');
+      // this.$emit('event_self', 'hahaha');
+      // this.$emit('event_self', 'hahaha');
+      // this.$emit('event_self', 'hahaha');
+      // this.$emit('event_self', 'hahaha');
+
+      // this.$emit('event1', 'event1');
+      // this.$emit('event2', 'event2');
+    },
+    func (val) {
+      console.log('hello world: ' + val);
+    }
+  },
+  created () {
+    this.$on('event_self', this.func);
+
+    this.$on(this.eventArr, this.func);
   }
 }
 </script>
