@@ -1,6 +1,7 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
+    <div v-loading="isLoading">{{data}}</div>
+    <button @click="update">更新</button>
   </div>
 </template>
 
@@ -8,7 +9,22 @@
 
 export default {
   name: 'App',
+  data () {
+    return {
+      isLoading: false,
+      data: ''
+    }
+  },
   components: {
+  },
+  methods: {
+    update() {
+      this.isLoading = true
+      setTimeout(() => {
+        this.data = '用户数据'
+        this.isLoading = false
+      }, 3000)
+    }
   }
 }
 </script>
