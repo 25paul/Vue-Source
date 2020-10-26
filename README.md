@@ -61,6 +61,7 @@ vue中的hooks：
 ```javascript
 var hooks = ['create', 'activate', 'update', 'remove', 'destroy'];
 ```
+创建patch方法：
 
 ```javascript
 function createPatchFunction (backend) {
