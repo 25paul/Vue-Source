@@ -1,14 +1,31 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
+    <cont :msg="message">haha</cont>
   </div>
 </template>
 
 <script>
 
+let obj = {
+  template: '<div>{{msg}}</div>',
+  props: {
+    msg: {
+      type: String,
+      default: 'default'
+    }
+  },
+  name: 'Content'
+}
+
 export default {
   name: 'App',
+  data () {
+    return {
+      message: "vue extend test!!!"
+    }
+  },
   components: {
+    cont: obj
   }
 }
 </script>
