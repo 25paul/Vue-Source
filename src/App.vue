@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
+    <message :msg="message"></message>
   </div>
 </template>
 
@@ -8,6 +8,11 @@
 
 export default {
   name: 'App',
+  data () {
+    return {
+      message: "vue test!!!"
+    }
+  },
   components: {
   }
 }
