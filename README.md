@@ -55,7 +55,11 @@ function validateComponentName (name) {
 }
 ```
 
-然后再添加组件名并实例化；最后保存到options下的components属性中；这样就完成了组件的注册；
+然后再添加组件名并创建Vue的子类；最后保存到options下的components属性中；这样就完成了组件的注册；
+
+在渲染元素的时候，但执行到组件的占位符时，又会再次进行初始化；
+
+
 
 
 
