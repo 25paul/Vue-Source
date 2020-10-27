@@ -90,3 +90,12 @@ super作为父类；
 
 将上面获取的name作为局部组件的name来注册；
 
+
+
+
+#### 用途
+
+作为组件呢，用Vue.extend比较少用； 但是Vue.extend + $mount 这对组合有时还是会用到的。
+
+###### 为什么使用 extend
+
