@@ -51,3 +51,6 @@ function resolveAsset (
 如果assets存在filters的对应的id，则返回当前filter的处理函数；
 
 所以在执行渲染函数的时候就可以直接把对应的值传给filter的处理函数了；
+
+编译过程：parsefilters
+
