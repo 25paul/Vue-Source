@@ -1,14 +1,33 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
+    {{message}}
+    <button @click="change">Change</button>
   </div>
 </template>
 
 <script>
+import Vue from 'vue';
+
+const state = Vue.observable({ message: 'Vue 2.6' })
+const mutation = {
+  setMessage(value) {
+    state.message = value
+  }
+}
 
 export default {
   name: 'App',
   components: {
+  },
+  computed: {
+    message() {
+      return state.message
+    }
+  },
+  methods: {
+    change() {
+      mutation.setMessage('Vue 3.0')
+    }
   }
 }
 </script>
