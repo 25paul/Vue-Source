@@ -1,6 +1,7 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
+    <el-button>默认按钮</el-button>
+    <el-input></el-input>
   </div>
 </template>
 
