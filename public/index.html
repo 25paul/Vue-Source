@@ -12,6 +12,63 @@
       <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
     </noscript>
     <div id="app"></div>
+
+    <div id="root">{{data}}</div>
+    <div id="root2">{{data2}}</div>
+    <div id="root3">
+      <button @click="change">change</button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+      function registerPlugin(Vue) {
+        const vuex = {}
+        vuex._vm = new Vue({
+          data: {
+            message: 'hello vue.js'
+          }
+        })
+        vuex.state = vuex._vm
+        vuex.mutations = {
+          setMessage(value) {
+            vuex.state.message = value
+          }
+        }
+        function init() {
+          this.$store = vuex
+        }
+        Vue.mixin({
+          beforeCreate: init
+        })
+      }
+      Vue.use(registerPlugin)
+      new Vue({
+        el: '#root',
+        computed: {
+          data() {
+            return this.$store.state.message
+          }
+        }
+      })
+      new Vue({
+        el: '#root2',
+        computed: {
+          data2() {
+            return this.$store.state.message
+          }
+        }
+      })
+      new Vue({
+        el: '#root3',
+        methods: {
+          change() {
+            const newValue = this.$store.state.message + '.'
+            // this.$store.state.message = newValue;
+            this.$store.mutations.setMessage(newValue)
+          }
+        }
+      })
+    </script>
     <!-- built files will be auto injected -->
   </body>
 </html>
